@@ -1,0 +1,9 @@
+<h1>User</h1>
+<% if @Userz %>
+	<article>
+		<p>Account - <%= @Userz.username %></p>
+		<p>Created - <%= @Userz.created_at %></p>
+		<p>Last Updated - <%= @Userz.updated_at %></p>
+		<p>Edit Status - <%= @Userz.edit %></p>
+	</article>
+<% end %>

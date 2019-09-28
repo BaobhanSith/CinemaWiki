@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html> 
+
+
+<head> 
+ <meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width"> 
+		<meta name="description" content="This is my new Wiki app" /> 
+		<meta name="keywords" content="wiki, test app, blog"/> 
+ <link rel="stylesheet" href="/style.css" type="text/css" />
+ <title>Cinewiki</title> 
+</head>
+
+
+
+
+<body>
+<header>
+
+	<div class="page_title">
+		<h1>CINEWIKI</h1>
+	</div>
+	<div class="navbar"> 
+		<div class="links">
+			<a href="/">Home</a>
+			<a href="/create">Create</a>
+			<a href="/about">About</a>
+			<a href="/edit">Edit</p>
+		</div>
+		<div class="login">
+			<% if $credentials %>
+				<% if $credentials[0] != '' %>
+					Logged in as <a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a> |
+					<a href="/logout">Logout</a> |
+					<% if $credentials[0] == "admin" %>
+						<a href="/admincontrols">Admin Controls</a>
+					<% end %>
+				<% else %>
+					<a href="/login">Login</a>
+					<a href="/register">Register</a>
+				<% end %>
+			<% else %>
+				<a href="/login">Login</a>
+				<a href="/register">Register</a>
+			<% end %>
+		</div>
+	</div> 
+</header>
+<%= yield %>
+
+<footer>Created by Darius Dragnea ID:51984000 </footer>
+</body>
+</html>

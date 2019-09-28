@@ -1,0 +1,62 @@
+header { 
+	width: 100%;
+	position: relative;
+	float: left; 
+} 
+
+footer { 
+	height: 100px; 
+	padding-bottom: 50px; 
+} 
+
+div.page_title{
+	text-align: center;
+
+}
+
+div.navbar{
+	width:100px;
+	float:left;
+	position:relative;
+}
+
+div.main_container{
+	background-color: grey;
+	width: 100%;
+	position: relative;
+	float: left
+}
+
+div.links{
+	width: 90%;
+	position: relative;
+	float: left;
+}
+
+div.login{
+	width: 10%;
+	position: relative;
+	float: left;
+}
+
+div.users{
+	width: 60%;
+	padding-left: 20%;
+	padding-right: 20%;
+	position: relative;
+	float: left;
+}
+
+div.user, div.table_header{
+	width: 100%;
+	position: relative;
+	float: left;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+div.table_cell{
+	position: relative;
+	float: left;
+	width: 25%;
+}
