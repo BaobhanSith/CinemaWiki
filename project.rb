@@ -42,6 +42,10 @@ get '/' do
 	erb :home
 end
 
+get '/edit' do
+	protected
+end
+
 get '/login' do
 	erb :login
 end
