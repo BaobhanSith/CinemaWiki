@@ -25,7 +25,7 @@
 			<a href="/">Home</a>
 			<a href="/create">Create</a>
 			<a href="/about">About</a>
-			<a href="/edit">Edit</p>
+		
 		</div>
 		<div class="login">
 			<% if $credentials %>
@@ -34,6 +34,7 @@
 					<a href="/logout">Logout</a> |
 					<% if $credentials[0] == "admin" %>
 						<a href="/admincontrols">Admin Controls</a>
+						<a href="/edit">Edit</a>
 					<% end %>
 				<% else %>
 					<a href="/login">Login</a>
