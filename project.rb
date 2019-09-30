@@ -66,8 +66,25 @@ get '/' do
 	erb :home
 end
 
-get '/edit' do
+get'/edit'do
+	info=""
+	file = File.open("name")
+	file.each do |line|
+		info = info + line
+	end
+	file.close
+	@info = info
 	protected
+	erb :edit
+end
+
+put'/edit' do
+	info = "#{params[:message]}"
+	@info = info
+	file = File.open("name", "w")
+	file.puts@info
+	file.close
+	redirect'/'
 end
 
 get '/login' do
