@@ -86,7 +86,7 @@ end
 
 get'/edit'do
 	info=""
-	file = File.open("name")
+	file = File.open("name.txt")
 	file.each do |line|
 		info = info + line
 	end
