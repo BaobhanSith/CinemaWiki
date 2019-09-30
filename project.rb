@@ -38,6 +38,20 @@ helpers do
 	end
 end
 
+
+$myinfo = 'info'
+@info = ''
+
+def readFile(filename)
+	info = ""
+	file = File.open(filename)
+	file.each do |line|
+		info = info +line
+	end
+	file.close
+	$myinfo = info
+end
+
 get '/' do
 	info = 'Hello there!'
 	len = info.length
