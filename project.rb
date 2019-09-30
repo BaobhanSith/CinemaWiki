@@ -56,14 +56,23 @@ get '/' do
 	info = 'Hello there!'
 	len = info.length
 	len1 = len
-	readFile("name")
-	@info = info + ' ' + $myinfo
+	readFile("name.txt")
+	@info = info + '' + $myinfo
 	len = @info.length
 	len2 = len - 1
 	len3 = len2-len1
 	@words = len3.to_s
 
 	erb :home
+end
+
+get '/about' do
+	erb :about
+end
+
+get '/create' do
+	protected
+	erb :create
 end
 
 get'/edit'do
@@ -81,10 +90,14 @@ end
 put'/edit' do
 	info = "#{params[:message]}"
 	@info = info
-	file = File.open("name", "w")
+	file = File.open("name.txt", "w")
 	file.puts@info
 	file.close
 	redirect'/'
+end
+
+get '/reset' do
+	erb :edit
 end
 
 get '/login' do
