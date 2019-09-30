@@ -1,1 +1,10 @@
 <h1> Movies </h1>
+<% @movies.each do |movie| %>
+  <h2><%= movie.title %></h2>
+  <a href="/movies/<%= movie.title %>"><img src="<%= movie.poster %>"/></a>
+  <ul>
+    <li><%= movie.director %></li>
+    <li><%= movie.release %></li>
+    <li><%= movie.genre %></li>
+  </ul>
+<% end %>

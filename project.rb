@@ -10,7 +10,16 @@ ActiveRecord::Base.establish_connection(
 class User < ActiveRecord::Base
 	validates :username, presence: true, uniqueness: true              
 	validates :password, presence: true 
-end 
+end
+
+class Movie < ActiveRecord::Base
+  validates :title, presence: true
+  validates :director, presence: true
+  validates :genre, presence: true
+  validates :release, presence: true
+  validates :poster, presence: true
+end
+
 
 usernames=Array.new
 usernames<<"admin"
@@ -173,6 +182,26 @@ get '/admincontrols' do
 	erb :admincontrols
 end
 
+get '/movies' do
+  @movies = Movie.all.sort_by{|m| [m.id]}
+  erb :movies
+end
+
+get '/createmovie' do
+  protected
+  erb :createmovie
+end
+
+post '/createmovie' do
+  m = Movie.new
+  m.title = params[:title]
+  m.director = params[:director]
+  m.genre = params[:genre]
+  m.release = params[:release]
+  m.poster = params[:poster]
+  m.save
+  redirect '/movies'
+end
 
 get '/user/:uzer' do
 	protected

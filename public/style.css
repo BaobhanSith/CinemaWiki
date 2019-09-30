@@ -17,7 +17,7 @@ div.header{
 	grid-column-start:1;
 	grid-column-end:3;
 	max-width: 100%;
-    overflow-x: hidden;
+    	overflow-x: hidden;
 }
 
 a {
