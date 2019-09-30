@@ -50,3 +50,12 @@
 -- Enable the wiki to be reset by the administrator to its initial defualt text
 - A functional layout displaying the wiki features (???)
 - Extra marks will be given for additional features such as stylish looks and feel (Alexandra and Atanas)
+
+# How To Use Git
+- git init (allows you to use git commands in that directory)
+- git clone https://github.com/ReeceTait/CinemaWiki (clones the current state of the repo)(be sure to sign in to git)
+- git pull origin master (gets the latest version of the repo)
+- git status (displays the status of files)
+- git add * (adds all files to be commited)
+- git commit -m "<message>" (commits changes to local repo, <message> should be a commit comment)
+- git push origin master (pushes local repo to the GitHub repo)
