@@ -38,7 +38,17 @@ helpers do
 	end
 end
 
-get '/' do 
+get '/' do
+	info = 'Hello there!'
+	len = info.length
+	len1 = len
+	readFile("name")
+	@info = info + ' ' + $myinfo
+	len = @info.length
+	len2 = len - 1
+	len3 = len2-len1
+	@words = len3.to_s
+
 	erb :home
 end
 
