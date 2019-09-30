@@ -1,54 +1,62 @@
-<!DOCTYPE html> 
-<html> 
-
-
-<head> 
- <meta charset="UTF-8"> 
-		<meta name="viewport" content="width=device-width"> 
-		<meta name="description" content="This is my new Wiki app" /> 
-		<meta name="keywords" content="wiki, test app, blog"/> 
- <link rel="stylesheet" href="/style.css" type="text/css" />
- <title>Cinewiki</title> 
+<!DOCTYPE html>
+<html>
+<body>
+<div class="grid">
+<head>
+	<meta charser="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="This is my new Wiki app"/>
+	<meta name="keywords" content="wiki, test app, blog"/>
+<link rel="stylesheet" href="/style.css" type="text/css"/>
+	<title>CineWiki</title>
 </head>
 
 
-
-
-<body>
-<header>
-
+<div class="header">
 	<div class="page_title">
-		<h1>CINEWIKI</h1>
+		<h1>CineWiki</h1>
 	</div>
-	<div class="navbar"> 
-		<div class="links">
-			<a href="/">Home</a>
-			<a href="/create">Create</a>
-			<a href="/about">About</a>
+	<br>
+	<div class="navbar">
 		
-		</div>
-		<div class="login">
-			<% if $credentials %>
-				<% if $credentials[0] != '' %>
-					Logged in as <a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a> |
-					<a href="/logout">Logout</a> |
-					<% if $credentials[0] == "admin" %>
-						<a href="/admincontrols">Admin Controls</a>
-						<a href="/edit">Edit</a>
-					<% end %>
-				<% else %>
-					<a href="/login">Login</a>
-					<a href="/register">Register</a>
-				<% end %>
-			<% else %>
-				<a href="/login">Login</a>
-				<a href="/register">Register</a>
-			<% end %>
-		</div>
-	</div> 
-</header>
-<%= yield %>
+		<ul class="menu_items">
+			<li class="menu_item"><a href="/">Home</a></li>
+			<li class="menu_item"><a href="/create">Create</a></li>
+			<li class="menu_item"><a href="/about">About</a></li>
+			<li class="menu_item"><a href="/edit">Edit</a></li>
+			<li class="menu_item"><a href="/register">Register</a></li>
+			<li class="menu_item">
+				<% if $credentials %> 
+				   <% if $credentials[0] != '' %> 
+						Logged in as <a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a> |  
+						<a href="/logout">Logout</a> |  
+						<% if $credentials[0] == "Admin" %> 
+							<a href="/admincontrols">Admin Controls</a> 
+						<% end %> 
+					<% else %> 
+						<a href="/login">Login</a> 
+					<% end %> 
+				<% else %> 
+				   <a href="/login">Login</a> 
+				<% end %> 
+			</li>
+		</ul>
+	</div>
+</div>
+<br>
 
-<footer>Created by Darius Dragnea ID:51984000 </footer>
+<div class="sidenav">
+	<p>Number of words: <%= @words %></p>
+	<p>Characters: </p>
+</div>
+
+<div class="view_content">
+	<%= yield%>
+</div>
+
+<footer>
+	<p>Created by Atanas Komsiyski ID:51985145</p>
+	<img src="footer.png">
+</footer>
+</div>
 </body>
-</html>
