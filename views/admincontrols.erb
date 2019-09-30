@@ -10,7 +10,6 @@
 <% @list2.each do |liste| %>
 <div class="user">
 <div class="table_cell"><%= liste.username %></div><div class="table_cell"><%= liste.created_at %></div>
-<div class="table_cell"><%= liste.edit %></div>
 <form action="/user/<%= liste.username %>" method="post" id="edit">
 <input type="hidden" name="_method" value="put">
 <div class="table_cell"><input type="checkbox" name="edit" <%= "checked" if liste.edit %>>
