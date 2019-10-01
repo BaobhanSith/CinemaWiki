@@ -62,7 +62,7 @@ def readFile(filename)
 end
 
 get '/' do
-	info = 'Hello there!'
+	info = ''
 	len = info.length
 	len1 = len
 	readFile("name.txt")
@@ -70,10 +70,14 @@ get '/' do
 	words=@info.split((/[^[[:word:]]]+/))
 	len4=words.length
 	len = @info.length
-	len2 = len - 2
+	len2 = len - 1
 	len3 = len2-len1
-	@words1 = len3.to_s
-	@words2=len4.to_s
+	if len3>0
+		len3 = len3-1
+	end
+	@words2 = len3.to_s
+	@words1=len4.to_s
+
 	erb :home
 end
 
