@@ -67,11 +67,13 @@ get '/' do
 	len1 = len
 	readFile("name.txt")
 	@info = info + '' + $myinfo
+	words=@info.split((/[^[[:word:]]]+/))
+	len4=words.length
 	len = @info.length
-	len2 = len - 1
+	len2 = len - 2
 	len3 = len2-len1
-	@words = len3.to_s
-
+	@words1 = len3.to_s
+	@words2=len4.to_s
 	erb :home
 end
 
