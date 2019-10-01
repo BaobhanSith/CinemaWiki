@@ -81,9 +81,9 @@ get '/about' do
 	erb :about
 end
 
-get '/create' do
+get '/createmovie' do
 	protected
-	erb :create
+	erb :createmovie
 end
 
 get'/edit'do
