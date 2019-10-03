@@ -1,0 +1,14 @@
+<h2><%= @Movies.title %></h2>
+<img src="<%= @Movies.poster %>">
+<ul>
+  <li><%= @Movies.director %></li>
+  <li><%= @Movies.release %></li>
+  <li><%= @Movies.genre %></li>
+</ul>
+
+<% if @Movies.hasReview %>
+  <h2>Reviews</h2>
+  <h4><%= @Reviews.user %></h4>
+  <p><%= @Reviews.content %></p>
+<% end %>
+
