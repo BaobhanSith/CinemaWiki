@@ -20,6 +20,12 @@ class Movie < ActiveRecord::Base
   validates :poster, presence: true
 end
 
+class Review < ActiveRecord::Base
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :user, presence: true
+end
+
 
 usernames=Array.new
 usernames<<"admin"
@@ -206,6 +212,33 @@ post '/createmovie' do
   m.release = params[:release]
   m.poster = params[:poster]
   m.save
+  redirect '/movies'
+end
+
+get '/movies/:movie' do
+  @Movies = Movie.where(:title => params[:movie]).to_a.first
+  @Reviews = Review.where(:title => params[:movie]).to_a
+  erb :movie
+end
+
+get '/movies/:movie/createreview' do
+  if $credentials
+    if $credentials[0] != ""
+      erb :createreview
+    else
+       redirect '/denied'
+    end
+  else
+    redirect '/denied'
+  end
+end
+
+post '/movies/:movie/createreview' do
+  r = Review.new
+  r.title = params[:title]
+  r.content = params[:content]
+  r.user = $credentials[0]
+  r.save
   redirect '/movies'
 end
 

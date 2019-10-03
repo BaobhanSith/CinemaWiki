@@ -6,9 +6,16 @@
   <li><%= @Movies.genre %></li>
 </ul>
 
-<% if @Movies.hasReview %>
-  <h2>Reviews</h2>
-  <h4><%= @Reviews.user %></h4>
-  <p><%= @Reviews.content %></p>
+<% if $credentials %>
+  <% if $credentials[0] != "" %>
+    <a href="/movies/<%= @Movies.title %>/createreview"><button>Create Review!</button></a>
+  <% end %>
 <% end %>
 
+<h2>Reviews</h2>
+<% if @Reviews %>
+  <% @Reviews.each do |review| %>
+    <h4><%= review.user %></h4>
+    <p><%= review.content %></p>
+  <% end %>
+<% end %>

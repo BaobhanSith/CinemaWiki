@@ -20,12 +20,8 @@
 		
 		<ul class="menu_items">
 			<li class="menu_item"><a href="/">Home</a></li>
-			<li class="menu_item"><a href="/about">About</a>
-			</li>
-			<li class="menu_item"><a href="/register">Register
-			
-			</a>
-			</li>
+			<li class="menu_item"><a href="/about">About</a></li>
+			<li class="menu_item"><a href="/register">Register</a></li>
 	
 				<% if $credentials %> 
 				   <% if $credentials[0] != '' %> 
@@ -51,6 +47,7 @@
 				<% else %> 
 				   <li class="menu_item"><a href="/login">Login</a> </li>
 				<% end %> 
+                        <li class="menu_item"><a href="/movies">Movies</a></li> 
 			
 		</ul>
 	</div>
