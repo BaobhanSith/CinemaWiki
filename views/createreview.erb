@@ -1,7 +1,12 @@
 <h2>Create Movie</h2>
 
-<form action="/movies/:movie/createreview" method="post" name="createReview">
-  Title: <input type="text" name="title"><br>
-  Content: <input type="text" name="content"><br>
+<form action="/createreview" method="post" name="createReview">
+  Title: <select name="title">
+           <option value="" disabled selected>Please select an option...</option>
+           <% @moviez.each do |movie| %>
+             <option value="<%= movie.title %>"><%= movie.title %></option>
+           <% end %>
+         </select><br>
+  Content: <input type="text" name="content"><br><br>
   <input type="submit" value="Create Review!">
 </form>

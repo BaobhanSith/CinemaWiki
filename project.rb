@@ -221,9 +221,10 @@ get '/movies/:movie' do
   erb :movie
 end
 
-get '/movies/:movie/createreview' do
+get '/createreview' do
   if $credentials
     if $credentials[0] != ""
+      @moviez = Movie.all.sort_by{|m| [m.id]}
       erb :createreview
     else
        redirect '/denied'
@@ -233,7 +234,7 @@ get '/movies/:movie/createreview' do
   end
 end
 
-post '/movies/:movie/createreview' do
+post '/createreview' do
   r = Review.new
   r.title = params[:title]
   r.content = params[:content]
