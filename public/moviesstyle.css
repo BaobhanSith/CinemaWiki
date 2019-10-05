@@ -1,0 +1,44 @@
+
+.movies{
+	padding: 10px;
+	font-family: Helvetica, sans-serif;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 200px);
+    grid-gap: 10px;
+}
+
+.movie:hover {
+	transform: scale(1.03);
+	transition: all 300ms;
+}
+
+.movie{
+	float: left;
+	background-color: #04001d;
+	padding: 20px;
+}
+
+.poster{
+	text-align: center;
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 150px;
+}
+
+img{
+	height: inherit;
+	object-fit: contain;
+	border-radius: 5px;
+}
+
+.movie_name{
+	clear: left;
+	border: 20px;
+	border-top: 1px;
+}
+
+.about{
+	padding-left: 3px;
+	
+}
