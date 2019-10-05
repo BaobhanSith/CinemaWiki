@@ -1,10 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movies</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="moviesstyle.css">
+</head>
+
+<body>
 <h1> Movies </h1>
-<% @movies.each do |movie| %>
-  <h2><%= movie.title %></h2>
-  <a href="/movies/<%= movie.title %>"><img src="<%= movie.poster %>"/></a>
-  <ul>
-    <li><%= movie.director %></li>
-    <li><%= movie.release %></li>
-    <li><%= movie.genre %></li>
-  </ul>
-<% end %>
+
+	<div class="movies">
+	<% @movies.each do |movie| %>
+		<div class="movie">
+			<div class="poster">
+				<a href="/movies/<%= movie.title %>"><img src="<%= movie.poster %>"/></a>
+			</div>
+			<h4 class="movie_name"><%= movie.title %></h4 
+			<ul class="about">
+				<li><%= movie.director %></li>
+				<li><%= movie.release %></li>
+				<li><%= movie.genre %></li>
+			</ul>
+		</div>
+	<% end %>
+
+
+	</div>
+
+</body>
+</html>
