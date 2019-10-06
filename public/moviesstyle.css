@@ -26,9 +26,9 @@
 	height: 150px;
 }
 
-img{
-	height: inherit;
-	object-fit: contain;
+#posterimg{
+	height: 100%;
+	width: auto;
 	border-radius: 5px;
 }
 
