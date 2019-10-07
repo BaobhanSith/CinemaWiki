@@ -22,7 +22,7 @@
           <li class="menu_item"><a href="/register">Register</a></li>
           <% if $credentials %> 
             <% if $credentials[0] != '' %> 						 
-              <li class="menu_item">Logged in as<a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a></li> 
+              <li class="menu_item">Logged in as <a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a></li> 
               <% if $credentials[0] == "admin" %> 
                 <li class="menu_item"><a href="/admincontrols">Admin Controls</a></li>
                 <li class="menu_item"><a href="/createmovie">Create Movie</a></li>
