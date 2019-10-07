@@ -1,10 +1,19 @@
- <h2>Login</h2>
- <br>
-
- <form action="/login" method="post">
-   Username:<input type="text" name="username"><br>
-   Password:<input type="password" name="password"><br>
-   <input type="submit" value="LOGIN!">
- </form>
-
- 
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="passwordvalidationstyle.css" type="text/css">
+	</head>
+	<body>
+		<h2>Login</h2>
+	 	<div class="container">
+  			<form action="/login" method="post" >
+    			<label for="usrname">Username</label>
+    			<input type="text" id="usrname" name="username" required>
+				<label for="password">Password</label>
+    			<input type="password" id="password" name="password" required>
+    			<input type="submit" value="Login">
+  			</form>
+		</div> 
+	</body>
+</html>
