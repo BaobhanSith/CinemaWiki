@@ -1,73 +1,62 @@
 <!DOCTYPE html>
 <html>
-<body>
-<div class="grid">
 <head>
-	<meta charser="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<meta name="description" content="This is my new Wiki app"/>
-	<meta name="keywords" content="wiki, test app, blog"/>
-<link rel="stylesheet" href="/style1.css" type="text/css"/>
-<link rel="icon" href="/icon.png">
-	<title>NolanWiki</title>
+  <meta charser="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="This is my new Wiki app"/>
+  <meta name="keywords" content="wiki, test app, blog"/>
+  <link rel="stylesheet" href="/style1.css" type="text/css"/>
+  <link rel="icon" href="/icon.png">
+  <title>NolanWiki</title>
 </head>
 
+<body>
+  <div class="grid">
+    <div class="header">
+      <img id="back" src="/banner.png">
+      <img id="front" src="/NolanWiki.png">
+      <div class="navbar">
+        <ul class="menu_items">
+          <li class="menu_item"><a href="/">Home</a></li>
+          <li class="menu_item"><a href="/about">About</a></li>
+          <li class="menu_item"><a href="/register">Register</a></li>
+          <% if $credentials %> 
+            <% if $credentials[0] != '' %> 						 
+              <li class="menu_item">Logged in as<a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a></li> 
+              <% if $credentials[0] == "admin" %> 
+                <li class="menu_item"><a href="/admincontrols">Admin Controls</a></li>
+                <li class="menu_item"><a href="/createmovie">Create Movie</a></li>
+                <li class="menu_item"><a href="/edit">Edit</a></li>
+                <li class="menu_item"><a href="/logout">Logout</a> </li>
+                <li class="menu_item"><a href="/createreview">Create Review</a></li>
+              <% else %>
+                <li class="menu_item"><a href="/logout">Logout</a></li>                                                 
+              <% end %> 
+            <% else %> 
+              <li class="menu_item"><a href="/login">Login</a> </li>
+            <% end %> 
+        <% else %> 
+          <li class="menu_item"><a href="/login">Login</a> </li>
+        <% end %> 
+        <li class="menu_item"><a href="/movies">Movies</a></li> 		
+      </ul>
+    </div>
+  </div>
+  <br>
 
-<div class="header">
-	<img id="back" src="/banner.png">
-	<img id="front" src="/NolanWiki.png">
-	<div class="navbar">
-		
-		<ul class="menu_items">
-			<li class="menu_item"><a href="/">Home</a></li>
-			<li class="menu_item"><a href="/about">About</a></li>
-			<li class="menu_item"><a href="/register">Register</a></li>
-	
-				<% if $credentials %> 
-				   <% if $credentials[0] != '' %> 
-						 
-						<li class="menu_item">Logged in as<a href="/user/<%= $credentials[0] %>"><b>
-							<%= $credentials[0] %></b>
-						</a> </li> 
-						
-						<% if $credentials[0] == "admin" %> 
-							<li class="menu_item"><a href="/admincontrols">Admin Controls</a> </li>
-							<li class="menu_item"><a href="/createmovie">Create Movie</a>
-							</li>
-							<li class="menu_item"><a href="/edit">Edit</a>
-							</li><li class="menu_item"><a href="/logout">Logout</a> </li>
-                                                        <li class="menu_item"><a href="/createreview">Create Review</a></li>
-							<% else %>
-								<li class="menu_item"><a href="/logout">Logout</a> </li>
-                                                                
-						<% end %> 
-					<% else %> 
-						<li class="menu_item"><a href="/login">Login</a> </li>
+  <div class="sidenav">
+    <p>Number of words: <%= @words1 %></p>
+    <p>Characters: <%= @words2 %></p>
+  </div>
 
-					<% end %> 
-				<% else %> 
-				   <li class="menu_item"><a href="/login">Login</a> </li>
-				<% end %> 
-                        <li class="menu_item"><a href="/movies">Movies</a></li> 
-			
-		</ul>
-	</div>
-</div>
-<br>
+  <div class="view_content">
+    <%= yield%>
+  </div>
 
-<div class="sidenav">
-	<p>Number of words: <%= @words1 %></p>
-	<p>Characters: <%= @words2 %></p>
-</div>
-
-<div class="view_content">
-	<%= yield%>
-</div>
-
-<footer>
-	<p>Created by Atanas Komsiyski ID:51985145 / Alexandra Nenkova ID: / Darius Dragnea ID: / Reece Tait ID:51982218 / Stanislav Stoyanov ID: </p>
-	<img src="/footer.png">
-</footer>
-</div>
+  <footer>
+    <p>Created by Atanas Komsiyski ID:51985145 / Alexandra Nenkova ID: / Darius Dragnea ID: / Reece Tait ID:51982218 / Stanislav Stoyanov ID: </p>
+    <img src="/footer.png">
+  </footer>
+  </div>
 </body>
 </html>
