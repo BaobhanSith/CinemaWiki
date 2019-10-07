@@ -12,7 +12,7 @@
     <% @movies.each do |movie| %>
       <div class="movie">
         <div class="poster">
-          <a href="/movies/<%= movie.title %>"><img src="<%= movie.poster %>"/></a>
+          <a href="/movies/<%= movie.title %>"><img id="posterimg" src="<%= movie.poster %>"/></a>
         </div>
         <h4 class="movie_name"><%= movie.title %></h4>
         <ul class="about">
