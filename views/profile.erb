@@ -1,9 +1,20 @@
-<h1>User</h1>
-<% if @Userz %>
-  <article>
-    <p>Account - <%= @Userz.username %></p>
-    <p>Created - <%= @Userz.created_at %></p>
-    <p>Last Updated - <%= @Userz.updated_at %></p>
-    <p>Edit Status - <%= @Userz.edit %></p>
-  </article>
+<h1 style="text-align:center">User</h1>
+<div class="card">
+		<div class="image">
+			<form action="/user/:uzer" method="post">
+			<label for="file-input">
+	   			<img src="/user.jpg" width=100%>
+	   		</label>
+	   		<input id="file-input" type="file" accept="image/*" name="picture_name">
+	   		<input type="submit">
+	   				</form>
+
+		</div>
+		<div class="profile">
+		<h2> <%= @Userz.username %></h2>
+		<h3>Created - <%= @Userz.created_at %></h3>
+		<h4>Last Updated - <%= @Userz.updated_at %></h4>
+		<h5>Edit Status - <%= @Userz.edit %></h5>
+	</div>
+</div>
 <% end %>
