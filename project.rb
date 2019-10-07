@@ -64,33 +64,34 @@ $myinfo = 'info'
 
 #Creates a function which takes in an argument and opens a file with that arguement
 def readFile(filename)
-  info = ""
-  file = File.open(filename)
-  file.each do |line|
-    info = info +line
-  end
-  file.close
-  $myinfo = info
+	info = ""
+	characters=0
+	words=0
+	file = File.open(filename)
+	file.each do |line|
+		info=info+line
+		wordss=line.gsub(/<\/?[^>]*>/,"")
+		wordss=wordss.gsub("&nbsp;","")
+		wordss1=line.gsub(/<\/?[^>]*>/,"")
+		wordss1=wordss1.gsub("&nbsp;","")
+		wordss1=wordss1.split(" ")
+		for word in wordss1
+			characters=characters+word.length
+		end
+		wordss=wordss.split(/[^[[:word:]]]+/)
+		words=words+wordss.length
+		
+	end
+	file.close
+	$myinfo = info
+	$characters=characters
+	$words=words
 end
 
 #Home page
 get '/' do
-  info = ''
-  len = info.length
-  len1 = len
   readFile("name.txt") #Opens name.txt file
-  @info = info + '' + $myinfo
-  words=@info.split((/[^[[:word:]]]+/))
-  len4=words.length
-  len = @info.length
-  len2 = len - 1
-  len3 = len2-len1
-  if len3>0
-    len3 = len3-1
-  end
-  @words2 = len3.to_s
-  @words1=len4.to_s
-
+  @info = $myinfo
   erb :home
 end
 
