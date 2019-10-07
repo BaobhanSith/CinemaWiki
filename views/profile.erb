@@ -2,14 +2,7 @@
 <div class="card">
 	<% if @Userz %>
 		<div class="image">
-			<form action="/user/:uzer" method="post">
-			<label for="file-input">
-	   			<img src="/user.jpg" width=100%>
-	   		</label>
-	   		<input id="file-input" type="file" accept="image/*" name="picture_name">
-	   		<input type="submit">
-	   				</form>
-
+	   		<img src="/user.jpg" width=100%>
 		</div>
 		<div class="profile">
 		<h2> <%= @Userz.username %></h2>
