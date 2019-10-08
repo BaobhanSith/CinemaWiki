@@ -1,10 +1,38 @@
-<h2>Create Movie</h2>
 
-<form action="/createmovie" method="post" name="createMovie">
-  Title: <input type="text" name="title"><br>
-  Poster: <input type="file" name="poster"><br>
-  Director: <input type="text" name="director"><br>
-  Release Date: <input type="text" name="release"><br>
-  Genre: <input type="text" name="genre"><br>
-  <input type="submit" value="Create Movie!">
+	<div class="table-wrapper"><form action="/createmovie" method="post" name="createMovie">
+	<div class="table-title">
+		<h2>Create Movie</h2>
+	</div>
+
+	<table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                      <th><b>Title</b></th>
+                      <th><b>Poster</b></th>
+                      <th><b>Genre</b></th>
+                      <th><b>Release Date</b></th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                	<tr>
+                	
+                		<td><input type="text" name="title"></td>
+                		<td><input type="file" name="poster"></td>
+                		<td><input type="text" name="genre"></td>
+                		<td><input type="text" name="release"></td>
+                	
+                		
+
+                	</tr>
+                		
+                
+            
+    </tbody>
+</table>
+
+<div class="submit_movie">
+<input type="submit" value="Create Movie!">
+</div>
 </form>
+</div>
