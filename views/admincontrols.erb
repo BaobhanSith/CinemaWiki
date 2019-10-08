@@ -1,24 +1,38 @@
-<h2>Admin controls page</h2>
-<p><b>User list</b></p><br>
-<div class="users">
-  <div class="table_header">
-    <div class="table_cell">Username</div>
-    <div class="table_cell">Date Joined</div>
-    <div class="table_cell">Can Edit?</div>
-    <div class="table_cell">Delete</div>
-  </div>
-
-  <% @list2.each do |liste| %>
-    <div class="user">
-      <div class="table_cell"><%= liste.username %></div><div class="table_cell"><%= liste.created_at %></div>
-      <form action="/user/<%= liste.username %>" method="post" id="edit">
-        <input type="hidden" name="_method" value="put">
-        <div class="table_cell"><input type="checkbox" name="edit" <%= "checked" if liste.edit %>>
-        <input type="submit" value="Allow Edit?"></div>
-      </form>
-      <% if liste.username != "admin" %>
-        <div class="table_cell"><a href="/user/delete/<%= liste.username %>">Delete User?</a></div>
-      <% end %>
-    </div>
-  <% end %>
+<div class="table-wrapper">
+            <div class="table-title">
+                        <h2>Admin Controls Table</h2>
+            </div>
+     
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                      <th><b>Username</b></th>
+                      <th><b>Date Joined</b></th>
+                      <th><b>Can Edit?</b></th>
+                      <th><b>Delete</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% @list2.each do |liste| %>
+                  <tr>
+                    <td><%= liste.username %></td>
+                    <td><%= liste.created_at %></td>
+                    <form action="/user/<%= liste.username %>" method="post" id="edit">
+                       <input type="hidden" name="_method" value="put">
+                       <% if liste.username != "admin" %>
+                       <td>
+                            <input type="checkbox" name="edit" <%= "checked" if liste.edit %>>
+                            <input type="submit" value="Allow Edit?"></td>
+                    </form>
+                    
+                    <td>
+                      <a href="/user/delete/<%= liste.username %>">Delete User?</a></td>
+                    
+                  </tr>
+                  <% end %>
+                  <% end %>
+                </tbody>
+              </table>
+                
+           
 </div>
