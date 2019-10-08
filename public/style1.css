@@ -97,33 +97,118 @@ div.view_content{
     background-color: rgba(211, 211, 211, 0.3);
 }
 
-div.users{
-    width: 60%;
-    padding-left: 20%;
-    padding-right: 20%;
-    position: relative;
-    float: left; 
-} 
-div.user, div.table_header{
-    width: 100%; 
-    position: relative;
-    float: left;
-    padding-top: 5px;
-    padding-bottom: 5px; 
-} 
-div.table_cell{
-    position: relative;
-    float: left;
-    width: 25%; 
+table.table tr th:first-child {
+		width: 70px;
+	}
+
+table.table tr th:last-child {
+		width: 190px;
+	}
+
+table.table-striped.table-hover tbody tr{
+	background-color: rgba(211, 211, 211, 0.3);
 }
 
+
+
+table.table td a {
+		font-weight: bold;
+		color:white;
+		text-decoration: none;
+	}
+
+.table-wrapper {
+        background-image: linear-gradient(#080031, black);
+        padding: 20px 25px;
+        margin: auto;
+        width:90%;
+        float:center;
+    }
+.table-title {
+		padding-bottom: 15px;
+		background: #299be4;
+		color: #fff;
+		padding: 16px 30px;
+		margin: -20px -25px 10px;
+		border-radius: 3px 3px 0 0;
+    }
+
+div.movies-page{
+	padding-bottom: 15px;
+		background: #299be4;
+		color: #fff;
+		padding: 16px 30px;
+		margin: 5px 10px -10px;
+		border-radius: 3px 3px 0 0;
+		width:79.2%;
+}
+
+div.registerr{
+	padding-bottom: 15px;
+		background: #299be4;
+		color: #fff;
+		padding: 16px 30px;
+		margin: -5px 0px 0px;
+		border-radius: 3px 3px 0 0;
+		width:465px;
+}
+
+div.edit-page {
+	padding-bottom: 15px;
+		background: #299be4;
+		color: #fff;
+		padding: 16px 30px;
+		margin: 5px 0px 0px;
+		border-radius: 3px 3px 0 0;
+		width:93.9%;
+}
+ .table-title h2 {
+		margin: 5px 0 0;
+		font-size: 24px;
+		text-align: center;
+	}
+div.movies-page h2{
+		margin: 5px 0 0;
+		font-size: 24px;
+		text-align: center;
+}
+div.registerr h2{
+		margin: auto;
+		font-size: 24px;
+		text-align: center;
+}
+
+div.edit-page h2{
+	margin: 5px 0 0;
+		font-size: 24px;
+		text-align: center;
+}
+ table.table tr th, table.table tr td {
+        border-color:#e9e9e9;;
+		padding: 12px 15px;
+		position: relative;
+    	float: center;
+    	width: 27%; 
+    	text-align: center;
+    }
+
 div.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(211, 211, 211, 0.3);
+  max-width: 100%;
+  margin: 10px 300px 20px;
   text-align: right;
   font-family: arial;
   background-image: linear-gradient(#080031, black);
+}
+
+div.profile_user{
+	background: #299be4;
+	color: #fff;
+	text-align: center;
+	max-width: 100%;
+	float:center;
+	margin: 5px 300px -21px;
+
 }
 
 
@@ -133,7 +218,6 @@ div.profile{
 
 div.image{
 	width: 100%;
-
 }
 
 div.image:hover {
@@ -142,6 +226,12 @@ div.image:hover {
 }
 
 
+
+
+div.submit_movie{
+	text-align: right;
+	padding:20px 10px;
+}
 
 footer{
 	grid-column-start:1;
