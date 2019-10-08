@@ -238,7 +238,7 @@ post '/createmovie' do
   #Creates a new instance of the movie class and passes in the data passed through the form before saving it
   m = Movie.new
   m.title = params[:title]
-  m.director = params[:director]
+  m.director = "Christopher Nolan"
   m.genre = params[:genre]
   m.release = params[:release]
   m.poster = params[:poster]
