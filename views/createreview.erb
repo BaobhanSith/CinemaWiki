@@ -7,6 +7,9 @@
              <option value="<%= movie.title %>"><%= movie.title %></option>
            <% end %>
          </select><br>
-  Content: <input type="text" name="content"><br><br>
+ Content: <textarea rows="20" cols="90" name="content"></textarea>
+  <script>
+        CKEDITOR.replace( "content" );
+      </script>
   <input type="submit" value="Create Review!">
 </form>
