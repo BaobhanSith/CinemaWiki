@@ -19,16 +19,18 @@
         <ul class="menu_items">
           <li class="menu_item"><a href="/">Home</a></li>
           <li class="menu_item"><a href="/about">About</a></li>
+          <li class="menu_item"><a href="/movies">Movies</a></li> 
           <li class="menu_item"><a href="/register">Register</a></li>
           <% if $credentials %> 
             <% if $credentials[0] != '' %> 						 
               <li class="menu_item">Logged in as <a href="/user/<%= $credentials[0] %>"><b><%= $credentials[0] %></b></a></li> 
               <% if $credentials[0] == "admin" %> 
                 <li class="menu_item"><a href="/admincontrols">Admin Controls</a></li>
-                <li class="menu_item"><a href="/createmovie">Create Movie</a></li>
                 <li class="menu_item"><a href="/edit">Edit</a></li>
-                <li class="menu_item"><a href="/logout">Logout</a> </li>
+                <li class="menu_item"><a href="/createmovie">Create Movie</a></li>
                 <li class="menu_item"><a href="/createreview">Create Review</a></li>
+                <li class="menu_item"><a href="/logout">Logout</a> </li>
+                
               <% else %>
                 <li class="menu_item"><a href="/logout">Logout</a></li>                                                 
               <% end %> 
@@ -37,8 +39,7 @@
             <% end %> 
         <% else %> 
           <li class="menu_item"><a href="/login">Login</a> </li>
-        <% end %> 
-        <li class="menu_item"><a href="/movies">Movies</a></li> 		
+        <% end %>	
       </ul>
     </div>
   </div>
@@ -54,7 +55,7 @@
   </div>
 
   <footer>
-    <p>Created by Atanas Komsiyski ID:51985145 / Alexandra Nenkova ID: / Darius Dragnea ID:51984000 / Reece Tait ID:51982218 / Stanislav Stoyanov ID: </p>
+    <p>Copyright© 2019 Atanas Komsiyski ID:51985145 / Alexandra Nenkova ID:51984461 / Darius Dragnea ID:51984000 / Reece Tait ID:51982218 / Stanislav Stoyanov ID: </p>
     <img src="/footer.png">
   </footer>
   </div>
