@@ -1,6 +1,6 @@
 <div class="table-wrapper">
   <div class="table-title">
-    <h2>Admin Controls Table</h2>
+    <h2>Users</h2>
   </div>   
   <table class="table table-striped table-hover">
     <thead>
@@ -12,23 +12,79 @@
       </tr>
     </thead>
     <tbody>
-      <% @list2.each do |liste| %>
+      <% @users.each do |user| %>
         <tr>
-          <td><%= liste.username %></td>
-          <td><%= liste.created_at %></td>
-          <form action="/user/<%= liste.username %>" method="post" id="edit">
+          <td><%= user.username %></td>
+          <td><%= user.created_at %></td>
+          <form action="/user/<%= user.username %>" method="post" id="edit">
             <input type="hidden" name="_method" value="put">
-            <% if liste.username != "admin" %>
+            <% if user.username != "admin" %>
               <td>
-                <input type="checkbox" name="edit" <%= "checked" if liste.edit %>>
+                <input type="checkbox" name="edit" <%= "checked" if user.edit %>>
                 <input type="submit" value="Allow Edit?">
               </td>
             </form>      
             <td>
-              <a href="/user/delete/<%= liste.username %>">Delete User?</a>
+              <a href="/user/delete/<%= user.username %>">Delete User?</a>
             </td>      
           </tr>
         <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div><br><br>
+
+<div class="table-wrapper">
+  <div class="table-title">
+    <h2>Movies</h2>
+  </div> 
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><b>Title</b></th>
+        <th><b>Director</b></th>
+        <th><b>Genre</b></th>
+        <th><b>Release</b></th>
+        <th><b>Poster</b></th>
+        <th><b>Delete</b></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.title %></td>
+          <td><%= movie.director %></td>
+          <td><%= movie.genre %></td>
+          <td><%= movie.release %></td>
+          <td><%= movie.poster %></td>
+          <td><a href="/movies/delete/<%= movie.title %>">Delete Movie?</a></td>   
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div><br><br>
+
+<div class="table-wrapper">
+  <div class="table-title">
+    <h2>Reviews</h2>
+  </div> 
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><b>Movie</b></th>
+        <th><b>Content</b></th>
+        <th><b>User</b></th>
+        <th><b>Delete</b></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reviews.each do |review| %>
+        <tr>
+          <td><%= review.title %></td>
+          <td><%= review.content %></td>
+          <td><%= review.user %></td>
+          <td><a href="/reviews/delete/<%= review.title %>">Delete Review?</a></td>   
+        </tr>
       <% end %>
     </tbody>
   </table>

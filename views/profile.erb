@@ -13,4 +13,12 @@
 		<h5>Edit Status - <%= @Userz.edit %></h5>
 	</div>
 </div>
+
+<h2>Reviews</h2>
+  <% if @Reviewz %>
+    <% @Reviewz.each do |review| %>
+      <h3><%= review.title %></h3>
+      <p><%= review.content %></p><br><br>
+    <% end %>
+  <% end %>
 <% end %>

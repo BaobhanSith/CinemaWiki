@@ -218,7 +218,9 @@ end
 #Admin Controls page
 get '/admincontrols' do
   protected
-  @list2 = User.all.sort_by{|u| [u.id]} #Passes all user data to the list2 class
+  @users = User.all.sort_by{|u| [u.id]} #Passes all user data to the list2 class
+  @movies = Movie.all.sort_by{|m| [m.id]} #Passes all the movie data to the movies class
+  @reviews = Review.all.sort_by{|m| [m.id]} #Passes
   erb :admincontrols
 end
 
@@ -383,6 +385,7 @@ end
 #Individual User page
 get '/user/:uzer' do
   @Userz = User.where(:username => params[:uzer]).to_a.first #Gets the data for the specified user
+  @Reviewz = Review.where(:user => params[:uzer]).to_a #Gets all reviews submitted by the user
   if @Userz != nil
     erb :profile
   else
@@ -407,9 +410,23 @@ get '/user/delete/:uzer' do
   else
     n.destroy
     usernames.delete(n.username)
-    @list2 = User.all.sort_by{|u| [u.id]}
+    @users = User.all.sort_by{|u| [u.id]}
     erb :admincontrols
   end
+end
+
+#Delete Movie code
+get '/movies/delete/:movie' do
+  protected
+  n = Movie.where(:title => params[:movie]).to_a.first
+  @reviewz = Review.where(:title => params[:movie]).to_a
+  @reviewz.each do |r|
+    r.destroy
+  end
+  n.destroy
+  @movies = Movie.all.sort_by{|m| [m.id]}
+  @reviews = Review.all.sort_by{|r| [r.id]}
+  erb :admincontrols
 end
 
 not_found do
