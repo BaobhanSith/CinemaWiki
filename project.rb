@@ -243,6 +243,7 @@ get '/backup' do
     userString += user.username.to_s + "//" + user.password.to_s + "//" + userEditString + "//" + user.created_at.to_s + "\n"
   end
   userFile.puts userString
+  userFile.close
   
   #Opens up the movie text file and writes the content of the user table to it
   movieFile = File.open("Movies.txt", "w")
@@ -250,6 +251,7 @@ get '/backup' do
     movieString += movie.title.to_s + "//" + movie.director.to_s + "//" + movie.genre.to_s + "//" + movie.release.to_s + "//" + movie.poster.to_s + "\n"
   end
   movieFile.puts movieString
+  movieFile.close
   
   #Opens up the movie text file and writes the content of the user table to it
   reviewFile = File.open("Reviews.txt", "w")
@@ -257,8 +259,65 @@ get '/backup' do
     reviewString += review.title.to_s + "//" + review.content.to_s + "//" + review.user.to_s + "\n"
   end
   reviewFile.puts reviewString
+  reviewFile.close
 
   redirect '/'
+end
+
+get '/restore' do
+  protected
+
+  #Deletes the content of the User table and restores it to the last backed up version
+  User.delete_all
+  userFile = File.open("Users.txt")
+  userData = []
+  userFile.each do |line|
+    userData = line.split("//")
+    u = User.new
+    u.username = userData[0]
+    u.password = userData[1]
+    puts userData[2]
+    if(userData[2].to_s == "true")
+      puts "User can edit"
+      u.edit = true
+    else
+      puts "User cannot edit"
+      u.edit = false
+    end
+    u.save
+  end
+  userFile.close
+
+  #Deletes the content of the Movie table and restores it to the last backed up version
+  Movie.delete_all
+  movieFile = File.open("Movies.txt")
+  movieData = []
+  movieFile.each do |line|
+    movieData = line.split("//")
+    m = Movie.new
+    m.title = movieData[0]
+    m.director = movieData[1]
+    m.genre = movieData[2]
+    m.release = movieData[3]
+    m.poster = movieData[4]
+    m.save
+  end
+  movieFile.close
+
+  #Deletes the content of the Review table and restores it to the last backed up version
+  Review.delete_all
+  reviewFile = File.open("Reviews.txt")
+  reviewData = []
+  reviewFile.each do |line|
+    reviewData = line.split("//")
+    r = Review.new
+    r.title = reviewData[0]
+    r.content = reviewData[1]
+    r.user = reviewData[2]
+    r.save
+  end
+  reviewFile.close
+  redirect '/logout'
 end
 
 #Movies page
