@@ -222,6 +222,45 @@ get '/admincontrols' do
   erb :admincontrols
 end
 
+get '/backup' do
+  protected
+  @users = User.all.sort_by{|u| [u.id]}
+  @movies = Movie.all.sort_by{|m| [m.id]}
+  @reviews = Review.all.sort_by{|r| [r.id]}
+  userString = ""
+  userEditString = ""
+  movieString = ""
+  reviewString = ""
+
+  #Opens up the user text file and writes the content of the user table to it
+  userFile = File.open("Users.txt", "w")
+  @users.each do |user|
+    if(user.edit)
+      userEditString = "true"
+    else
+      userEditString = "false"
+    end
+    userString += user.username.to_s + "//" + user.password.to_s + "//" + userEditString + "//" + user.created_at.to_s + "\n"
+  end
+  userFile.puts userString
+  
+  #Opens up the movie text file and writes the content of the user table to it
+  movieFile = File.open("Movies.txt", "w")
+  @movies.each do |movie|
+    movieString += movie.title.to_s + "//" + movie.director.to_s + "//" + movie.genre.to_s + "//" + movie.release.to_s + "//" + movie.poster.to_s + "\n"
+  end
+  movieFile.puts movieString
+  
+  #Opens up the movie text file and writes the content of the user table to it
+  reviewFile = File.open("Reviews.txt", "w")
+  @reviews.each do |review|
+    reviewString += review.title.to_s + "//" + review.content.to_s + "//" + review.user.to_s + "\n"
+  end
+  reviewFile.puts reviewString
+
+  redirect '/'
+end
+
 #Movies page
 get '/movies' do
   @movies = Movie.all.sort_by{|m| [m.id]} #Passes all movie data to the movies class
