@@ -368,16 +368,11 @@ get '/createreview' do
 end
 
 post '/createreview' do
-  review = ""
-  file = File.open("Archives.txt", "a")
-  review += "Title: " + params[:title] + " Content: " + params[:content] + " User: "+ $credentials[0] #Adds current review data to the review variable
-  file.puts review #Appends the content of the review variable to the Archives.txt file
-  file.close
   #Creates a new instance of the Review class and passes the data into it
   r = Review.new
-  r.title = params[:title]
-  r.content = params[:content]
-  r.user = $credentials[0]
+  r.title = params[:title].to_s
+  r.content = params[:content].to_s
+  r.user = $credentials[0].to_s
   r.save
   redirect '/movies'
 end
