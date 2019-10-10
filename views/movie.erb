@@ -15,9 +15,10 @@
 	<% if @Reviews %>
 	  <% @Reviews.each do |review| %>
 		<div style="white-space: wrap;">
-			<h4 id="username" style="display:inline-block; vertical-align:top; margin-top:21px; padding:5px; background-color: rgba(255, 255, 255, 0.3);"><%= review.user %></h4>
-			<div id="comment" style="display:inline-block; vertical-align:top; margin-top:21px; padding:5px; background-color: rgba(255, 255, 255, 0.3); word-wrap: break-all; max-width:25%;"><%= review.content %></div>
+			<h4 id="username" style="display:inline-block; vertical-align:top; margin-top:21px; padding:5px; background-color: rgba(255, 255, 255, 0.3); border-radius: 15px;"><a href="/user/<%= review.user %>"><%= review.user %></a></h4>
+			<div id="comment" style="display:inline-block; vertical-align:top; margin-top:21px; padding:5px; background-color: rgba(255, 255, 255, 0.3); word-wrap: break-all; max-width:100%; border-radius: 15px;"><%= review.content %></div>
 		</div>
+                <hr>
 	  <% end %>
 	<% end %>
 	</body>

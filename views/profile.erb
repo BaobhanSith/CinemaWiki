@@ -17,7 +17,7 @@
 <h2>Reviews</h2>
   <% if @Reviewz %>
     <% @Reviewz.each do |review| %>
-      <h3><%= review.title %></h3>
+      <h3><a href="/movies/<%= review.title %>"><%= review.title %></a></h3>
       <p><%= review.content %></p><br><br>
     <% end %>
   <% end %>

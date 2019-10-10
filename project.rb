@@ -436,6 +436,17 @@ get '/movies/delete/:movie' do
   erb :admincontrols
 end
 
+#Delete Review Page
+get '/movies/review/:id' do
+  protected
+  n = Review.where(:id => params[:id]).to_a.first
+  n.destroy
+  @users = User.all.sort_by{|u| [u.id]}
+  @movies = Movie.all.sort_by{|m| [m.id]}
+  @reviews = Review.all.sort_by{|r| [r.id]}
+  erb :admincontrols
+end
+
 not_found do
   status 404
   redirect '/notfound'
