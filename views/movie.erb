@@ -11,13 +11,6 @@
 	</ul>
 	
 <br>
-
-	<% if $credentials %>
-	  <% if $credentials[0] != "" %>
-		<a href="/createreview"><button>Create Review!</button></a>
-	  <% end %>
-	<% end %>
-
 	<h2>Reviews</h2>
 	<% if @Reviews %>
 	  <% @Reviews.each do |review| %>
