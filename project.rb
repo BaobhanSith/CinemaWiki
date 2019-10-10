@@ -406,6 +406,8 @@ get '/user/delete/:uzer' do
     n.destroy
     usernames.delete(n.username)
     @users = User.all.sort_by{|u| [u.id]}
+    @movies = Movie.all.sort_by{|m| [m.id]}
+    @reviews = Review.all.sort_by{|r| [r.id]}
     erb :admincontrols
   end
 end
@@ -419,6 +421,7 @@ get '/movies/delete/:movie' do
     r.destroy
   end
   n.destroy
+  @users = User.all.sort_by{|u| [u.id]}
   @movies = Movie.all.sort_by{|m| [m.id]}
   @reviews = Review.all.sort_by{|r| [r.id]}
   erb :admincontrols
