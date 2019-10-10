@@ -31,8 +31,7 @@ class Review < ActiveRecord::Base
 end
 
 
-usernames=Array.new
-usernames<<"admin"
+
 
 helpers do
   def protected
@@ -62,30 +61,40 @@ end
 $myinfo = 'info'
 @info = ''
 
+#Create the array for all the usernames
+usernames=Array.new
+usernames<<"admin"
 #Creates a function which takes in an argument and opens a file with that arguement
 def readFile(filename)
 	info = ""
-	characters=0
-	words=0
+	characters=0 #counts the number of characters
+	words=0 #counts the number of words
 	file = File.open(filename)
 	file.each do |line|
 		info=info+line
+		#Eliminates the HTML tags from the text editor and creates the array for all the words
 		wordss=line.gsub(/<\/?[^>]*>/,"")
+		#Eliminates the endlines from the HTML code
 		wordss=wordss.gsub("&nbsp;","")
+		#Created the array for all the characters
 		wordss1=line.gsub(/<\/?[^>]*>/,"")
 		wordss1=wordss1.gsub("&nbsp;","")
+		#Changes the characters array by eliminating all the spaces and splitting it into words
 		wordss1=wordss1.split(" ")
 		for word in wordss1
+			#Counts each word's length and adds the length to the characters variable 
 			characters=characters+word.length
 		end
+		#Splits the words array into words by eliminating all the other characters , including the question marks, exclamation marks, commas etc.
 		wordss=wordss.split(/[^[[:word:]]]+/)
+		#Adds the number of words to the words variable 
 		words=words+wordss.length
 		
 	end
 	file.close
-	$myinfo = info
-	$characters=characters
-	$words=words
+	$myinfo = info # saves the information from the file into a global variable
+	$characters=characters #  saves the number of characters from the file into a global variable
+	$words=words # saves the number of words from the file into a global variable
 end
 
 #Home page
