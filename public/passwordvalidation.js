@@ -4,16 +4,16 @@ var capital = document.getElementById("capital");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
 
-// When the user clicks on the password field, show the message box
+// When the user clicks on the password field, show the requirements box
 Input.onfocus = function() {
   document.getElementById("message").style.display = "block";
 }
 
-// When the user clicks outside of the password field, hide the message box
+// When the user clicks outside of the password field, hide the requirements box
 Input.onblur = function() {
   document.getElementById("message").style.display = "none";
 }
-// When the user starts to type something inside the password field
+// Begins validating as soon as when the user starts typing 
 Input.onkeyup = function() {
 
     
