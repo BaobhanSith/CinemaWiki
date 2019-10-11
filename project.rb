@@ -166,7 +166,7 @@ post '/login' do
     end 
   else 
     $credentials = ['','']
-    redirect '/wrongaccount'
+    redirect '/noaccount'
   end
 end 
 
