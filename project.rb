@@ -333,7 +333,7 @@ end
 
 #Movies page
 get '/movies' do
-  @movies = Movie.all.sort_by{|m| [m.id]} #Passes all movie data to the movies class
+  @movies = Movie.all.sort_by{|m| [m.title]} #Passes all movie data to the movies class
   erb :movies
 end
 
