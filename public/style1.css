@@ -170,7 +170,11 @@ div.profile_user{
 	
 }
 
-
+div.profile{
+	max-width:100%;
+	margin: 24px 0;
+	text-align:center;
+}
 
 
 div.image{
